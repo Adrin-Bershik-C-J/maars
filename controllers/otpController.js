@@ -1,12 +1,15 @@
 const asyncHandler = require("express-async-handler");
 const twilio = require("twilio");
 
+require('dotenv').config();
+
 const OTP = require("../models/otpModel");
 const regForm = require("../models/patientModel");
 const Chronic = require("../models/chronicModel");
 
-const accountSid = "AC116125f332b1b604579d8e17a036ee49";
-const authToken = "976d5648b4a3eb6ab0ca24cdc6bb49ad";
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+
 const client = new twilio(accountSid, authToken);
 
 const generateOTP = () => {
