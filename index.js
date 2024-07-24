@@ -11,7 +11,7 @@ app.use("/api/patient", patientRoute);
 
 const PORT = 8000;
 
-mongoose.set("debug", true); // Enable detailed logging
+//mongoose.set("debug", true); // Enable detailed logging
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/clinic", {
@@ -28,3 +28,6 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+
+//adrin
