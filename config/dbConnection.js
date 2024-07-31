@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 mongoose.set("debug", true); // Enable detailed logging
 
 const dbConnection = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/clinic", {
+    const uri = process.env.MONGODB_LOCAL_URI;
+    await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 10000, // Timeout after 10s instead of 30s
       connectTimeoutMS: 10000, // Timeout after 10s instead of no timeout
     });
