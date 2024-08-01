@@ -10,8 +10,8 @@ const patientSchema = new mongoose.Schema(
       type: Number,
       required: false,
     },
-    mobileNumber: {
-      type: Number,
+    phone: {
+      type: String,
       required: false,
     },
     email: {

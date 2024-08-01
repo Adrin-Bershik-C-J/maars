@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const chronicSchema = new mongoose.Schema(
   {
-    phoneNumber: { type: Number, required: false },
+    phone: { type: Number, required: false },
     name: { type: String, required: false },
     dob: { type: String, required: false },
     age: { type: Number, required: false },
