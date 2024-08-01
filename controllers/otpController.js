@@ -26,19 +26,19 @@ exports.sendOTP = asyncHandler(async (req, res) => {
 
       await otpDocument.save();
 
-      // client.messages
-      //   .create({
-      //     body: `Your OTP is ${otp}`,
-      //     from: "+14159692428", // Replace with your Twilio phone number
-      //     to: phone,
-      //   })
-      //   .then(() => {
-      //     res.status(200).json({ success: true, message: "OTP sent successfully" });
-      //   })
-      //   .catch((err) => {
-      //     console.error("Twilio error:", err);
-      //     res.status(500).json({ success: false, error: "Failed to send OTP" });
-      //   });
+      client.messages
+        .create({
+          body: `Your OTP is ${otp}`,
+          from: "+14159692428", // Replace with your Twilio phone number
+          to: phone,
+        })
+        .then(() => {
+          res.status(200).json({ success: true, message: "OTP sent successfully" });
+        })
+        .catch((err) => {
+          console.error("Twilio error:", err);
+          res.status(500).json({ success: false, error: "Failed to send OTP" });
+        });
     } else {
       res.status(400).json({ success: false, message: "Phone number not registered" });
     }
